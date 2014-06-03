@@ -375,6 +375,13 @@ define [
       subscription
 
 
+    resetSmartTransition: ->
+      ###
+      Resets current transition state to avoid deadlock when router.navigate is called during current smart transition.
+      ###
+      @_inTransition = false
+
+
     smartTransitPage: (newRootWidgetPath, params, transition) ->
       ###
       Initiates client-side transition of the page.
@@ -416,7 +423,7 @@ define [
                                        triggers events related to transition process
       @return Future
       ###
-      _console.log "WidgetRepo::transitPage -> current root = #{ @rootWidget.debug() }" if global.config.debug.widget
+      _console.log "WidgetRepo::transitPage -> current root = #{ @rootWidget.debug() }" #if global.config.debug.widget
 
       # interrupting previous transition if it's not completed
 #      @_curTransition.interrupt() if @_curTransition? and @_curTransition.isActive()
