@@ -85,7 +85,8 @@ define [
 
         @process(newPath) if options.trigger
 
-        history.pushState({}, document.title, @currentPath) if not options.shim
+# TODO: PHONEGAP
+#        history.pushState({}, document.title, @currentPath) if not options.shim
       else
         window.location.href = newPath
 

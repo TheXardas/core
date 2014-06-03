@@ -3,7 +3,8 @@ Initializes requirejs configuration and then calls cordjs framework initializati
 ###
 
 require.config
-  baseUrl: '/'
+  # TODO: PHONEGAP
+  baseUrl: ''
   urlArgs: "release=" + global.config.static.release
 
 

@@ -59,7 +59,8 @@ define [
               "/assets/z/#{cssToGroup[css]}.css"
             else
               # anti-cache suffix is needed only for direct-links, not for the optimized groups
-              "#{css}?release=#{ global.config.static.release }"
+              # TODO: PHONEGAP
+              "#{css.substr(1)}?release=#{ global.config.static.release }"
         _.map(_.uniq(optimized), @getHtmlLink).join('')
 
 

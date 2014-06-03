@@ -182,15 +182,17 @@ define [
       initUrl = if global.config.browserInitScriptId
         "/assets/z/#{global.config.browserInitScriptId}.js"
       else
-        "/bundles/cord/core/init/browser-init.js?release=" + global.config.static.release
+        # TODO: PHONEGAP
+        "bundles/cord/core/init/browser-init.js?release=" + global.config.static.release
 
+      # TODO: PHONEGAP
       """
       <script>
         var global = {
           config: #{ JSON.stringify(global.appConfig.browser) }
         };
       </script>
-      <script data-main="#{initUrl}" src="/vendor/requirejs/require.js?release=#{global.config.static.release}"></script>
+      <script data-main="#{initUrl}" src="vendor/requirejs/require.js?release=#{global.config.static.release}"></script>
       <script>
           function cordcorewidgetinitializerbrowser(wi) {
             requirejs(['cord!utils/Future'], function(Future) {
